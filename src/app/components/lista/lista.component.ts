@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Servico } from 'src/app/interfaces/Servico';
+import { Cadastro } from 'src/app/interfaces/cadastro';
+import { CadastroService } from './../../services/cadastro.service';
 
 @Component({
   selector: 'app-lista',
@@ -7,11 +8,11 @@ import { Servico } from 'src/app/interfaces/Servico';
   styleUrls: ['./lista.component.scss'],
 })
 export class ListaComponent implements OnInit {
-  servicos: Servico[] = [{ _id: '1', name: 'angular', category: 'teste' }];
+  cadastros: Cadastro[];
   displayedColumns = ['name', 'category'];
 
-  constructor() {
-    // this.servicos = [];
+  constructor(private cadastroService: CadastroService) {
+    this.cadastros = this.cadastroService.listarTodos();
   }
 
   ngOnInit(): void {}

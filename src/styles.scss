@@ -1,4 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+// azul-barra #152d4c
+// azul-barra-selecionado #364d61
+// ico cinza
+// azul-ico-selecionado #285c8f
+// amarelo #febd26
+// amarelo-selecionado #fecc51
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+html,
+body {
+  height: 100%;
+  background-color: #ebedf0;
+  margin: 0;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+a {
+  text-decoration: none;
+}
+
+.mat-toolbar.mat-primary {
+  --mat-toolbar-container-background-color: #152d4c;
+  --mat-toolbar-container-text-color: white;
+}

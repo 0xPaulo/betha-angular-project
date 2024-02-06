@@ -1,0 +1,24 @@
+.mat-toolbar.mat-primary {
+  --mat-toolbar-container-background-color: #152d4c;
+  --mat-toolbar-container-text-color: white;
+}
+.toolbar-items {
+  display: flex;
+  align-items: center;
+}
+.toolbar-items span {
+  margin-right: 20px;
+  margin-left: 10px;
+}
+.toolbar-items img {
+  margin-right: 20px;
+}
+.toolbar-items div {
+  border-right: 4px solid #ffe600;
+  padding-right: 10px;
+  margin-right: 10px;
+}
+
+.toolbar-items div img {
+  margin-right: 10px;
+}

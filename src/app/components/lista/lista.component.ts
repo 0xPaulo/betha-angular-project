@@ -13,7 +13,7 @@ import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 })
 export class ListaComponent implements OnInit {
   cadastros$: Observable<Cadastro[]>;
-  displayedColumns = ['name', 'defeito'];
+  displayedColumns = ['_id','name', 'defeito'];
 
   constructor(
     private dialog: MatDialog,

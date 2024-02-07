@@ -7,7 +7,7 @@ import { Cadastro } from '../interfaces/cadastro';
   providedIn: 'root',
 })
 export class CadastroService {
-  private readonly API = '../../assets/cadastros.json';
+  private readonly API = 'api/lista';
   constructor(private httpClient: HttpClient) {}
   listarTodos() {
     return this.httpClient.get<Cadastro[]>(this.API).pipe(

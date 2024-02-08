@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListaComponent } from './components/lista/lista.component';
-import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-  { path: 'lista', component: ListaComponent },
-  { path: 'login', component: LoginComponent },
-  // { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'betha', pathMatch: 'full' },
+  {
+    path: 'betha',
+    loadChildren: () =>
+      import('../app/components/components.module').then(
+        (m) => m.ComponentsModule
+      ),
+  },
 ];
 
 @NgModule({

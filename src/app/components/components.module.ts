@@ -8,13 +8,27 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ComponentsRoutingRoutes } from './components-routing.module';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
 import { ListaComponent } from './lista/lista.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
-  declarations: [ToolbarComponent, ListaComponent, ErrorDialogComponent],
+  declarations: [
+    ToolbarComponent,
+    ListaComponent,
+    ErrorDialogComponent,
+    FormCadastroComponent,
+  ],
   imports: [
+    BrowserAnimationsModule,
     CommonModule,
     MatTableModule,
     MatToolbarModule,
@@ -23,6 +37,11 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatProgressSpinnerModule,
     MatDialogModule,
     MatButtonModule,
+    ComponentsRoutingRoutes,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
   ],
 })
 export class ComponentsModule {}

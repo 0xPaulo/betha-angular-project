@@ -4,7 +4,9 @@ import { Cadastro } from 'src/app/interfaces/cadastro';
 import { CadastroService } from './../../services/cadastro.service';
 
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
+import { FormCadastroComponent } from '../form-cadastro/form-cadastro.component';
 
 @Component({
   selector: 'app-lista',
@@ -13,9 +15,11 @@ import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 })
 export class ListaComponent implements OnInit {
   cadastros$: Observable<Cadastro[]>;
-  displayedColumns = ['_id','name', 'defeito'];
+  displayedColumns = ['_id', 'name', 'defeito', 'ico'];
 
   constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     private dialog: MatDialog,
     private cadastroService: CadastroService
   ) {
@@ -28,6 +32,19 @@ export class ListaComponent implements OnInit {
   }
   openDialogError() {
     this.dialog.open(ErrorDialogComponent);
+  }
+
+  onAdd() {
+    console.log('add');
+    this.router.navigate(['new'], { relativeTo: this.route });
+    // this.router.navigate(['new'], { relativeTo: this.route });
+  }
+
+  openFormAdd() {
+    const dialogRef = this.dialog.open(FormCadastroComponent);
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
   ngOnInit(): void {}
 }

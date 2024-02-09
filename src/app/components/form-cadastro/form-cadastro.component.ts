@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-form-cadastro',
   templateUrl: './form-cadastro.component.html',
-  styleUrls: ['./form-cadastro.component.css'],
+  styleUrls: ['./form-cadastro.component.scss'],
 })
 export class FormCadastroComponent implements OnInit {
-  constructor(private router: Router) {}
-  backMain() {
-    this.router.navigate(['betha/lista']);
+  form: FormGroup;
+  constructor(private formBuilder: FormBuilder) {
+    this.form = formBuilder.group({ name: [null], defeito: [null] });
+  }
+
+  onEnviar() {
+    // throw new Error('Method not implemented.');
+    console.log('enviar funcionou');
+  }
+  onCancel() {
+    console.log('cancel funcionou');
+    // throw new Error('Method not implemented.');
   }
   ngOnInit() {}
 }

@@ -15,7 +15,7 @@ import { FormCadastroComponent } from '../form-cadastro/form-cadastro.component'
 })
 export class ListaComponent implements OnInit {
   cadastros$: Observable<Cadastro[]>;
-  displayedColumns = ['_id', 'name', 'defeito', 'ico'];
+  displayedColumns = ['_id', 'name', 'defeito'];
 
   constructor(
     private route: ActivatedRoute,
@@ -41,7 +41,10 @@ export class ListaComponent implements OnInit {
   }
 
   openFormAdd() {
-    const dialogRef = this.dialog.open(FormCadastroComponent);
+    const dialogRef = this.dialog.open(FormCadastroComponent, {
+      // height: '40%',
+      width: '80%',
+    });
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });

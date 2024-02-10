@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CadastroService } from 'src/app/services/cadastro.service';
 
 @Component({
   selector: 'app-form-cadastro',
@@ -8,17 +10,26 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class FormCadastroComponent implements OnInit {
   form: FormGroup;
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private snackBar: MatSnackBar,
+    private service: CadastroService,
+    private formBuilder: FormBuilder
+  ) {
     this.form = formBuilder.group({ name: [null], defeito: [null] });
   }
 
-  onEnviar() {
-    // throw new Error('Method not implemented.');
-    console.log('enviar funcionou');
+  onSubmit() {
+    this.service.save(this.form.value).subscribe(
+      (result) => console.log(result),
+      (error) => {
+        this.snackBar.open('Acorreu um erro', '', { duration: 5000 });
+      }
+    );
   }
   onCancel() {
     console.log('cancel funcionou');
     // throw new Error('Method not implemented.');
   }
+
   ngOnInit() {}
 }

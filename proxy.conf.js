@@ -2,7 +2,7 @@ const PROXY_CONFIG = [
   {
     context: ["/api"],
     target: "https://betha-v2.onrender.com/",
-    secure: false,
+    secure: true,
     logLevel: "debug",
   },
 ];

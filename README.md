@@ -1,27 +1,23 @@
-# BethaProject
+# Sistema de Cadastro de Itens
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
+Este é um sistema de cadastro de itens desenvolvido com Spring Boot (Java) para o backend, Angular para o frontend e PostgreSQL para o banco de dados.
 
-## Development server
+## Funcionalidades
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Cadastro de Itens: Permite aos usuários adicionar novos itens ao sistema.
+- Visualização de Itens: Os itens cadastrados podem ser visualizados em uma lista.
+- Edição de Itens: Os usuários podem editar informações dos itens já cadastrados.
+- Remoção de Itens: Permite aos usuários remover itens do sistema.
 
-## Code scaffolding
+## Tecnologias Utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Backend (Spring Boot)
+- Java: Linguagem de programação utilizada para desenvolver o backend da aplicação.
+- Spring Boot: Framework utilizado para criar APIs RESTful de forma rápida e fácil.
+- PostgreSQL: Banco de dados relacional utilizado para armazenar os itens cadastrados.
 
-## Build
+### Frontend (Angular)
+- Angular: Framework de desenvolvimento front-end baseado em TypeScript.
+- HTML/CSS: Utilizados para criar a interface do usuário.
+- TypeScript: Linguagem utilizada para escrever o código do frontend.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

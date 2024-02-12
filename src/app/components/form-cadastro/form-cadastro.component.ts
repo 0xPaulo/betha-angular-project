@@ -20,7 +20,10 @@ export class FormCadastroComponent implements OnInit {
 
   onSubmit() {
     this.service.save(this.form.value).subscribe(
-      (result) => console.log(result),
+      (result) => {
+        console.log(result);
+        this.onSucess();
+      },
       () => {
         this.onError();
       }
@@ -28,6 +31,9 @@ export class FormCadastroComponent implements OnInit {
   }
   onError() {
     this.snackBar.open('Acorreu um erro', '', { duration: 5000 });
+  }
+  onSucess() {
+    this.snackBar.open('Cadastrado com sucesso', '', { duration: 5000 });
   }
   onCancel() {
     console.log('cancel funcionou');

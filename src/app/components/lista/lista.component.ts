@@ -33,12 +33,10 @@ export class ListaComponent implements OnInit {
   openDialogError() {
     this.dialog.open(ErrorDialogComponent);
   }
-
-  onAdd() {
-    console.log('add');
-    this.router.navigate(['new'], { relativeTo: this.route });
-    // this.router.navigate(['new'], { relativeTo: this.route });
-  }
+  // onAdd() {
+  //   console.log('add');
+  //   this.router.navigate(['new'], { relativeTo: this.route });
+  // }
 
   openFormAdd() {
     const dialogRef = this.dialog.open(FormCadastroComponent, {
@@ -47,7 +45,16 @@ export class ListaComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
+      this.loadCadastros();
     });
+  }
+  loadCadastros() {
+    this.cadastros$ = this.cadastroService.listarTodos().pipe(
+      catchError(() => {
+        this.openDialogError();
+        return of([]);
+      })
+    );
   }
   ngOnInit(): void {}
 }

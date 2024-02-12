@@ -8,7 +8,8 @@ import { Cadastro } from '../interfaces/cadastro';
 })
 export class CadastroService {
   // private readonly API = '../../assets/cadastros.json';
-  private readonly API = 'https://betha-v2.onrender.com/api/lista';
+  // private readonly API = 'https://betha-v2.onrender.com/api/lista';
+  private readonly API = 'http://localhost:8080/api/lista ';
 
   constructor(private httpClient: HttpClient) {}
 

@@ -21,7 +21,8 @@ export class CadastroService {
     );
   }
 
-  save(chamado: Cadastro) {
+  save(chamado: Partial<Cadastro>) {
+    //nao todo o cadastro id nao vem
     return this.httpClient.post<Cadastro>(this.API, chamado).pipe(first());
     console.log(chamado);
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { NonNullableFormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CadastroService } from 'src/app/services/cadastro.service';
 
@@ -9,14 +9,13 @@ import { CadastroService } from 'src/app/services/cadastro.service';
   styleUrls: ['./form-cadastro.component.scss'],
 })
 export class FormCadastroComponent implements OnInit {
-  form: FormGroup;
+  form = this.formBuilder.group({ name: [''], defeito: [''] });
+
   constructor(
     private snackBar: MatSnackBar,
     private service: CadastroService,
-    private formBuilder: FormBuilder
-  ) {
-    this.form = formBuilder.group({ name: [null], defeito: [null] });
-  }
+    private formBuilder: NonNullableFormBuilder
+  ) {}
 
   onSubmit() {
     this.service.save(this.form.value).subscribe(

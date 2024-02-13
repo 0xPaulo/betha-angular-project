@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   // onAdd() {
-  //   console.log('add');
   //   this.router.navigate(['new'], { relativeTo: this.route });
   // }
 }

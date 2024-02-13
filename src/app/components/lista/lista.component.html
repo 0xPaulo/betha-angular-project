@@ -33,7 +33,7 @@
           </button>
 
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button>
+          <button mat-icon-button (click)="editarItem(element)">
             <mat-icon>edit</mat-icon>
           </button>
           <button mat-icon-button>

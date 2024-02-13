@@ -10,6 +10,5 @@ export class ToolbarComponent {
   constructor(private router: Router) {}
   onLogin() {
     this.router.navigate(['login']);
-    console.log('Teste');
   }
 }

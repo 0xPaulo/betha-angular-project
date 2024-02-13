@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
-import { CadastroService } from './services/cadastro.service';
+import { RepositoryService } from './services/repository.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +17,7 @@ import { CadastroService } from './services/cadastro.service';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [CadastroService],
+  providers: [RepositoryService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

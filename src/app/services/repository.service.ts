@@ -6,7 +6,7 @@ import { Cadastro } from '../interfaces/cadastro';
 @Injectable({
   providedIn: 'root',
 })
-export class CadastroService {
+export class RepositoryService {
   // private readonly API = '../../assets/cadastros.json';
   // private readonly API = 'https://betha-v2.onrender.com/api/lista';
   private readonly API = 'http://localhost:8080/api/lista ';

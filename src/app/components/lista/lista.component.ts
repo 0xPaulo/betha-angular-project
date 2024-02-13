@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 import { Cadastro } from 'src/app/interfaces/cadastro';
-import { CadastroService } from 'src/app/services/cadastro.service';
+import { tabelaService } from 'src/app/services/tabela.service';
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 import { FormCadastroComponent } from '../form-cadastro/form-cadastro.component';
 
@@ -11,13 +12,21 @@ import { FormCadastroComponent } from '../form-cadastro/form-cadastro.component'
   styleUrls: ['./lista.component.scss'],
 })
 export class ListaComponent implements OnInit {
-  @Input() cadastros: Cadastro[] = [];
+  cadastros$: Observable<Cadastro[]>;
+
   displayedColumns = ['_id', 'name', 'defeito', 'ico'];
 
-  constructor(
-    private dialog: MatDialog,
-    private cadastroService: CadastroService
-  ) {}
+  constructor(private dialog: MatDialog, private tabelaService: tabelaService) {
+    this.cadastros$ = this.carregarTabela();
+  }
+
+  carregarTabela(): Observable<Cadastro[]> {
+    return (this.cadastros$ = this.tabelaService.carregarCadastros());
+  }
+
+  carregarNovaTabela() {
+    this.tabelaService.carregarCadastros();
+  }
 
   openFormAdd() {
     const dialogRef = this.dialog.open(FormCadastroComponent, {
@@ -26,22 +35,16 @@ export class ListaComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
-      // this.loadCadastros();
     });
   }
-
-  // loadCadastros() {
-  //   this.cadastros = this.cadastroService.listarTodos().pipe(
-  //     catchError(() => {
-  //       this.openDialogError();
-  //       return of([]);
-  //     })
-  //   );
-  // }
 
   openDialogError() {
     this.dialog.open(ErrorDialogComponent);
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.tabelaService.listaAtualizada.subscribe(() => {
+      this.carregarTabela();
+    });
+  }
 }

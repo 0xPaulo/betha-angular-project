@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NonNullableFormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CadastroService } from 'src/app/services/cadastro.service';
+import { RepositoryService } from 'src/app/services/repository.service';
+import { tabelaService } from 'src/app/services/tabela.service';
 
 @Component({
   selector: 'app-form-cadastro',
@@ -9,18 +10,21 @@ import { CadastroService } from 'src/app/services/cadastro.service';
   styleUrls: ['./form-cadastro.component.scss'],
 })
 export class FormCadastroComponent implements OnInit {
-  form = this.formBuilder.group({ name: [''], defeito: [''] });
-
+  form: FormGroup;
   constructor(
     private snackBar: MatSnackBar,
-    private service: CadastroService,
-    private formBuilder: NonNullableFormBuilder
-  ) {}
+    private service: RepositoryService,
+    private formBuilder: FormBuilder,
+    private tabelaService: tabelaService
+  ) {
+    this.form = formBuilder.group({ name: [null], defeito: [null] });
+  }
 
   onSubmit() {
     this.service.save(this.form.value).subscribe(
       (result) => {
         console.log(result);
+        this.tabelaService.listaAtualizada.emit();
         this.onSucess();
       },
       () => {

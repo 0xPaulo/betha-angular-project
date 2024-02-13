@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   constructor(private router: Router) {}
   onACESSAR() {
-    this.router.navigate(['lista']);
+    this.router.navigate(['home']);
     console.log('teste');
   }
 }

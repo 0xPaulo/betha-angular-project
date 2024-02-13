@@ -28,7 +28,7 @@ export class ListaComponent implements OnInit {
     this.tabelaService.carregarCadastros();
   }
 
-  openFormAdd() {
+  abrirDialogForm() {
     const dialogRef = this.dialog.open(FormCadastroComponent, {
       // height: '40%',
       width: '80%',

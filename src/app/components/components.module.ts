@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MyRouteTesteRoutes } from './components-routing.module';
+import { DeleteComponent } from './delete/delete.component';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
 import { HomeComponent } from './home/home.component';
@@ -30,6 +31,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     ErrorDialogComponent,
     FormCadastroComponent,
     HomeComponent,
+    DeleteComponent,
   ],
   imports: [
     MatSnackBarModule,
@@ -49,6 +51,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatInputModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    MatButtonModule,
   ],
 })
 export class ComponentsModule {}

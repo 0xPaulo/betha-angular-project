@@ -5,6 +5,7 @@ import { Cadastro } from 'src/app/interfaces/cadastro';
 import { RepositoryService } from 'src/app/services/repository.service';
 import { TabelaService } from 'src/app/services/tabela.service';
 
+import { DeleteComponent } from '../delete/delete.component';
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 import { FormCadastroComponent } from '../form-cadastro/form-cadastro.component';
 
@@ -59,6 +60,19 @@ export class ListaComponent implements OnInit {
           subscription.unsubscribe();
         });
       });
+  }
+
+  openDialogDeletar(item: Cadastro) {
+    // const id = item._id;
+    // const subscription = this.repository
+    // .findById(id)
+    // .subscribe((dados: Cadastro[]) => {
+    this.dialog.open(DeleteComponent, {
+      width: '400px',
+      data: { item: item },
+    });
+    // subscription.unsubscribe();
+    // });
   }
 
   ngOnInit() {

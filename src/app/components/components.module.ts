@@ -19,9 +19,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MyRouteTesteRoutes } from './components-routing.module';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
+import { HomeComponent } from './home/home.component';
 import { ListaComponent } from './lista/lista.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [

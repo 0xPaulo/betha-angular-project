@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RepositoryService } from 'src/app/services/repository.service';
-import { tabelaService } from 'src/app/services/tabela.service';
+import { TabelaService } from 'src/app/services/tabela.service';
 
 @Component({
   selector: 'app-form-cadastro',
@@ -13,11 +13,12 @@ import { tabelaService } from 'src/app/services/tabela.service';
 export class FormCadastroComponent implements OnInit {
   form: FormGroup;
   isEditMode: boolean = false;
+
   constructor(
     private snackBar: MatSnackBar,
     private service: RepositoryService,
     private formBuilder: FormBuilder,
-    private tabelaService: tabelaService,
+    private tabelaService: TabelaService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     console.log(data);
@@ -34,10 +35,11 @@ export class FormCadastroComponent implements OnInit {
 
   onSubmit() {
     if (this.isEditMode) {
-      this.service.update(this.data._id, this.form.value).subscribe(
+      const id_item: string = this.data.item._id;
+      this.service.update(id_item, this.form.value).subscribe(
         (result) => {
-          // console.log(result);
-          this.tabelaService.listaAtualizada.emit;
+          console.log(result);
+          this.tabelaService.emitListaAtualizada.emit();
           this.onSucess();
         },
         () => {
@@ -47,8 +49,7 @@ export class FormCadastroComponent implements OnInit {
     } else {
       this.service.save(this.form.value).subscribe(
         (result) => {
-          // console.log(result);
-          this.tabelaService.listaAtualizada.emit();
+          this.tabelaService.emitListaAtualizada.emit();
           this.onSucess();
         },
         () => {
@@ -57,6 +58,7 @@ export class FormCadastroComponent implements OnInit {
       );
     }
   }
+
   onError() {
     this.snackBar.open('Acorreu um erro', '', { duration: 5000 });
   }
@@ -65,7 +67,6 @@ export class FormCadastroComponent implements OnInit {
   }
   onCancel() {
     console.log('cancel funcionou');
-    // throw new Error('Method not implemented.');
   }
 
   ngOnInit() {}

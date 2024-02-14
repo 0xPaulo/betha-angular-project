@@ -3,7 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { Cadastro } from 'src/app/interfaces/cadastro';
 import { RepositoryService } from 'src/app/services/repository.service';
-import { tabelaService } from 'src/app/services/tabela.service';
+import { TabelaService } from 'src/app/services/tabela.service';
+
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 import { FormCadastroComponent } from '../form-cadastro/form-cadastro.component';
 
@@ -20,7 +21,7 @@ export class ListaComponent implements OnInit {
   constructor(
     private repository: RepositoryService,
     private dialog: MatDialog,
-    private tabelaService: tabelaService
+    private tabelaService: TabelaService
   ) {
     this.cadastros$ = this.carregarTabela();
   }
@@ -61,8 +62,9 @@ export class ListaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tabelaService.listaAtualizada.subscribe(() => {
+    this.tabelaService.emitListaAtualizada.subscribe(() => {
       this.carregarTabela();
+      console.log('Carregando tabela');
     });
   }
 }

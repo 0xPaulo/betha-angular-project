@@ -8,8 +8,8 @@ import { RepositoryService } from './repository.service';
 @Injectable({
   providedIn: 'root',
 })
-export class tabelaService {
-  listaAtualizada = new EventEmitter<void>();
+export class TabelaService {
+  emitListaAtualizada = new EventEmitter<void>();
 
   constructor(
     private repository: RepositoryService,

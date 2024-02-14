@@ -22,20 +22,26 @@ export class RepositoryService {
 
   save(chamado: Partial<Cadastro>) {
     //nao todo o cadastro id nao vem
-    return this.httpClient.post<Cadastro>(this.API, chamado).pipe(first());
+    return this.httpClient.post<Cadastro>(this.API, chamado).pipe(
+      tap(() => {
+        console.log(`(save) url: ${this.API}`);
+      })
+    );
   }
 
   update(id: string, chamado: Partial<Cadastro>) {
-    return this.httpClient.patch<Cadastro>(this.API, chamado).pipe(first());
+    return this.httpClient.post<Cadastro>(`${this.API}/${id}`, chamado).pipe(
+      tap(() => {
+        console.log(`(edit) id: ${id} url ${this.API}/${id}`);
+      })
+    );
   }
 
   findById(id: string): Observable<Cadastro[]> {
-    console.log('iniciando busca por id :' + id);
     const url = `${this.API}/${id}`;
     console.log(`url da requisiçao do id (${id}): ${url}`);
 
     return this.httpClient.get<Cadastro[]>(url).pipe(
-      tap((data) => console.log(`dados recebido com o id (${id}) : ${data}`)),
       catchError((error) => {
         console.log(`Aconteceu esse erro ao buscar id (${id}):  ${error}`);
         throw error;

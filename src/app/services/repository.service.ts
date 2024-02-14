@@ -38,11 +38,8 @@ export class RepositoryService {
   }
 
   delete(id: string) {
-    return this.httpClient.delete(`${this.API}/${id}`).pipe(
-      tap(() => {
-        console.log(`(delete) id: ${id} url ${this.API}/${id}`);
-      })
-    );
+    console.log(`cheguei esse é a minha url  ${this.API}/${id}`);
+    return this.httpClient.delete<Cadastro>(`${this.API}/${id}`);
   }
 
   findById(id: string): Observable<Cadastro[]> {

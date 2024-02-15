@@ -12,3 +12,30 @@
   justify-content: center;
   align-items: center;
 }
+mat-grid-tile {
+  background: #605caa;
+  font-size: xx-large;
+  color: white;
+}
+.card {
+  width: 80%;
+  padding: 30px 1px 20px 1px;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+.mat-icon {
+  width: auto;
+  height: auto;
+  left: 20px;
+  top: 20px;
+  position: absolute;
+}
+.material-icons {
+  font-size: 80px;
+}
+.transform-icon {
+  transform: rotate(-10deg);
+  opacity: 0.2; /* Altere esse valor conforme necessário para ajustar a opacidade */
+}

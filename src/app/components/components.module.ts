@@ -15,6 +15,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HomeComponent } from '../screens/home/home.component';
@@ -55,6 +56,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatButtonModule,
     MatToolbarModule,
     MatTooltipModule,
+    MatGridListModule,
   ],
 })
 export class ComponentsModule {}

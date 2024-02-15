@@ -2,23 +2,50 @@
   --mat-toolbar-container-background-color: #152d4c;
   --mat-toolbar-container-text-color: white;
 }
-.toolbar-items {
+.brand {
   display: flex;
   align-items: center;
 }
-.toolbar-items span {
+.brand span {
   margin-right: 20px;
   margin-left: 10px;
 }
-.toolbar-items img {
+.brand img {
   margin-right: 20px;
 }
-.toolbar-items div {
+.detalhe {
   border-right: 4px solid #ffe600;
   padding-right: 10px;
   margin-right: 10px;
 }
-
-.toolbar-items div img {
+.brand img {
   margin-right: 10px;
+}
+.itens {
+  font-size: 16px;
+}
+.icons button mat-icon {
+  font-size: 18px;
+}
+.icons {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  right: 10px;
+}
+
+@media (max-width: 1300px) {
+  .icons {
+    display: none;
+  }
+}
+@media (max-width: 999px) {
+  .itens {
+    font-size: 12px;
+  }
+}
+@media (max-width: 840px) {
+  .itens {
+    display: none;
+  }
 }

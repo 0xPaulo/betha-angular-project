@@ -16,11 +16,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { HomeComponent } from '../screens/home/home.component';
 import { MyRouteTesteRoutes } from './components-routing.module';
 import { DeleteComponent } from './delete/delete.component';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
-import { HomeComponent } from './home/home.component';
 import { ListaComponent } from './lista/lista.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
@@ -52,6 +53,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatNativeDateModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatToolbarModule,
+    MatTooltipModule,
   ],
 })
 export class ComponentsModule {}

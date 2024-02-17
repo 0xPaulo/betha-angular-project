@@ -10,7 +10,7 @@ import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 import { FormCadastroComponent } from '../form-cadastro/form-cadastro.component';
 
 @Component({
-  selector: 'app-lista',
+  selector: 'lista-cadastro',
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.scss'],
 })

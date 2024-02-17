@@ -1,25 +1,19 @@
-.loading-spinner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-}
-.lista-body {
-  margin: auto 4em;
-}
-.home-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.titulo {
+  z-index: 2;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-weight: 600;
+  font-size: large;
 }
 mat-grid-tile {
-  background: #605caa;
+  background: #4d6f94;
   font-size: xx-large;
   color: white;
 }
 .card {
   width: 80%;
-  padding: 30px 1px 20px 1px;
+  padding: 50px 1px 20px 1px;
 }
 .center {
   display: flex;
@@ -37,5 +31,5 @@ mat-grid-tile {
 }
 .transform-icon {
   transform: rotate(-10deg);
-  opacity: 0.2; /* Altere esse valor conforme necessário para ajustar a opacidade */
+  opacity: 0.2;
 }

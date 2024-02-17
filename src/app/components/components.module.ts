@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { CadastroComponent } from '../screens/cadastro/cadastro.component';
 import { HomeComponent } from '../screens/home/home.component';
 import { MyRouteTesteRoutes } from './components-routing.module';
 import { DeleteComponent } from './delete/delete.component';
@@ -34,6 +35,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     FormCadastroComponent,
     HomeComponent,
     DeleteComponent,
+    CadastroComponent,
   ],
   imports: [
     MatSnackBarModule,

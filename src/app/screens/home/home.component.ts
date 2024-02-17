@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  // onAdd() {
-  //   this.router.navigate(['new'], { relativeTo: this.route });
-  // }
+  constructor(private router: Router, private route: ActivatedRoute) {}
+  cadastros() {
+    this.router.navigate(['cadastrar']);
+  }
 }

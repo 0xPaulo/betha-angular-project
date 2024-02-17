@@ -1,7 +1,7 @@
 <div (formSubmitted)="carregarNovaTabela()">
   <mat-card-content *ngIf="cadastros$ | async as cadastros ; else loading">
-    <mat-toolbar>Lista</mat-toolbar>
-    <mat-table class="body" [dataSource]="cadastros">
+    <mat-toolbar>Itens cadastrados</mat-toolbar>
+    <mat-table [dataSource]="cadastros">
 
       <!-- ID Column -->
       <ng-container matColumnDef="_id">

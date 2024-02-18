@@ -1,15 +1,72 @@
-.mat-toolbar {
+.table-toolbar {
   background-color: rgba(0, 0, 0, 0.151);
 }
-.div-com-icone {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80%;
+.table-toolbar h5 {
+  font-size: 1.2rem;
+  font-weight: 700;
 }
+.demo-button-container {
+  // display: flex;
+  // justify-content: space-between;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.personalizado-button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  // display: inline-block;
+  font-size: 16px; /* Tamanho da fonte */
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: 4px; /* Borda arredondada */
+}
+.linhas {
+  border: solid 1px red;
+}
+
+.custom-id-cell {
+  position: relative;
+}
+
+.custom-id-cell .id-number {
+  position: relative;
+  display: inline-block; /* Torna o elemento inline-block para que ele se ajuste ao conteúdo */
+  padding: 0 5px; /* Adiciona algum espaço ao redor do número */
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.custom-id-cell .id-number::after {
+  content: "";
+  position: absolute;
+  top: 50%; /* Posiciona o detalhe verticalmente no centro */
+  left: 50%; /* Posiciona o detalhe horizontalmente no centro */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Centraliza o detalhe em relação ao número */
+  // border: 2px solid red;
+  background-color: #4c77af77;
+  border-radius: 2rem;
+  box-sizing: border-box; /* Inclui a largura da borda no cálculo do tamanho */
+  width: 2.625rem;
+  height: 1.25rem;
+}
+
 .loading-spinner {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
+}
+
+mat-card {
+  width: 100%; /* O card ocupará toda a largura do contêiner pai */
+  // max-width: 1024px; /* Defina um máximo para evitar que o card fique muito largo */
+  height: auto; /* Permita que a altura do card se ajuste conforme o conteúdo */
 }

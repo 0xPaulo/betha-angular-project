@@ -17,7 +17,7 @@ import { FormCadastroComponent } from '../form-cadastro/form-cadastro.component'
 export class ListaComponent implements OnInit {
   cadastros$: Observable<Cadastro[]>;
 
-  displayedColumns = ['_id', 'name', 'defeito', 'ico'];
+  displayedColumns = ['_id', 'name', 'ico'];
 
   constructor(
     private repository: RepositoryService,

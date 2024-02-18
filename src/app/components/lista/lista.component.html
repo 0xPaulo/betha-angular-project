@@ -1,36 +1,46 @@
-<div (formSubmitted)="carregarNovaTabela()">
+<div class="card-container" (formSubmitted)="carregarNovaTabela()">
   <mat-card-content *ngIf="cadastros$ | async as cadastros ; else loading">
-    <mat-toolbar>Itens cadastrados</mat-toolbar>
-    <mat-table [dataSource]="cadastros">
+    <div class="table-toolbar pt-2">
+      <h5 class="ms-3">Itens cadastrados</h5>
+      <div class="demo-button-container">
+        <button (click)="abrirDialogForm()" class="ms-3 demo-button personalizado-button">+ Cadastrar
+        </button>
+      </div>
+    </div>
 
+    <mat-table [dataSource]="cadastros">
       <!-- ID Column -->
       <ng-container matColumnDef="_id">
         <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let element"> {{ element._id }}
+        <td mat-cell *matCellDef="let element" class="custom-id-cell">
+          <span class="id-number">{{ element._id }}</span>
         </td>
       </ng-container>
+
 
       <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Item </th>
-        <td mat-cell *matCellDef="let element"> {{ element.name }}
+        <td style="width: 90%;" mat-cell *matCellDef="let element">
+          <h2>
+
+            {{ element.name }}
+
+          </h2>
+          <h5>teste teste</h5>
+          <p>bla bla bla bla</p>
         </td>
       </ng-container>
 
       <!-- categoria Column -->
-      <ng-container matColumnDef="defeito">
+      <!-- <ng-container matColumnDef="defeito">
         <th mat-header-cell *matHeaderCellDef> Defeito </th>
         <td mat-cell *matCellDef="let element"> {{ element.defeito }} </td>
-      </ng-container>
+      </ng-container> -->
 
       <!-- Action Column -->
       <ng-container matColumnDef="ico">
         <th mat-header-cell *matHeaderCellDef>
-          <button mat-fab color="primary" (click)="abrirDialogForm()">
-            <div class="div-com-icone">
-              <mat-icon>add</mat-icon>
-            </div>
-          </button>
 
         <td mat-cell *matCellDef="let element">
           <button mat-icon-button (click)="editarItem(element)">

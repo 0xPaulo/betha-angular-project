@@ -25,17 +25,24 @@ export class FormCadastroComponent implements OnInit {
     if (data) {
       this.isEditMode = true;
       this.form = formBuilder.group({
-        name: [data.item.name],
-        defeito: [data.item.defeito],
+        name: [data.infoCadastro.name],
+        defeito: [data.infoCadastro.defeito],
+        item: [data.infoCadastro.item],
       });
     } else {
-      this.form = formBuilder.group({ name: [null], defeito: [null] });
+      this.form = formBuilder.group({
+        name: [null],
+        defeito: [null],
+        item: [null],
+      });
     }
   }
 
   onSubmit() {
     if (this.isEditMode) {
-      const id_item: string = this.data.item._id;
+      const id_item: string = this.data.infoCadastro._id;
+      console.log(id_item);
+
       this.service.update(id_item, this.form.value).subscribe(
         (result) => {
           console.log(result);

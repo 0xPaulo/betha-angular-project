@@ -6,8 +6,6 @@
   font-weight: 700;
 }
 .demo-button-container {
-  // display: flex;
-  // justify-content: space-between;
   padding-top: 12px;
   padding-bottom: 12px;
 }
@@ -19,14 +17,13 @@
   padding: 5px 10px;
   text-align: center;
   text-decoration: none;
-  // display: inline-block;
-  font-size: 16px; /* Tamanho da fonte */
+  font-size: 16px;
   font-weight: bolder;
   cursor: pointer;
-  border-radius: 4px; /* Borda arredondada */
+  border-radius: 4px;
 }
 .linhas {
-  border: solid 1px red;
+  // border: solid 1px red;
 }
 
 .custom-id-cell {
@@ -35,8 +32,8 @@
 
 .custom-id-cell .id-number {
   position: relative;
-  display: inline-block; /* Torna o elemento inline-block para que ele se ajuste ao conteúdo */
-  padding: 0 5px; /* Adiciona algum espaço ao redor do número */
+  display: inline-block;
+  padding: 0 5px;
   font-weight: bold;
   font-size: 1rem;
 }
@@ -44,8 +41,8 @@
 .custom-id-cell .id-number::after {
   content: "";
   position: absolute;
-  top: 50%; /* Posiciona o detalhe verticalmente no centro */
-  left: 50%; /* Posiciona o detalhe horizontalmente no centro */
+  top: 50%;
+  left: 50%;
   transform: translate(
     -50%,
     -50%
@@ -57,16 +54,61 @@
   width: 2.625rem;
   height: 1.25rem;
 }
+.grid {
+  display: grid;
+}
+.grid-template-columns {
+  grid-template-columns: 1fr 1fr;
+}
+.grid-1 {
+  align-content: start;
+}
+.grid-2 {
+  text-align: right;
+  justify-content: end;
+}
+.font-cell-edit h1 {
+  font-size: medium;
+  font-weight: bolder;
+}
+.font-cell-edit h2 {
+  color: rgb(75, 75, 75);
+  font-size: small;
+  font-weight: bold;
+}
+.font-cell-edit p {
+  font-size: small;
+  font-weight: bold;
 
+  color: rgb(75, 75, 75);
+}
+.grid-2 span {
+  color: #0000ff;
+}
 .loading-spinner {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
 }
-
 mat-card {
   width: 100%; /* O card ocupará toda a largura do contêiner pai */
-  // max-width: 1024px; /* Defina um máximo para evitar que o card fique muito largo */
+  // max-width: 2000px; /* Defina um máximo para evitar que o card fique muito largo */
   height: auto; /* Permita que a altura do card se ajuste conforme o conteúdo */
+}
+.invisivel {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.visivel {
+  opacity: 1;
+  max-height: 100px; /* Ajuste conforme necessário para a altura máxima do dropdown */
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.cor-icone {
+  color: rgb(75, 75, 75);
 }

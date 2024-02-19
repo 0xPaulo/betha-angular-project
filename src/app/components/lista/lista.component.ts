@@ -16,8 +16,8 @@ import { FormCadastroComponent } from '../form-cadastro/form-cadastro.component'
 })
 export class ListaComponent implements OnInit {
   cadastros$: Observable<Cadastro[]>;
-
-  displayedColumns = ['_id', 'name', 'ico'];
+  detalhesVisiveis: { [key: number]: boolean } = {};
+  displayedColumns = ['_id', 'info', 'ico'];
 
   constructor(
     private repository: RepositoryService,
@@ -25,6 +25,10 @@ export class ListaComponent implements OnInit {
     private tabelaService: TabelaService
   ) {
     this.cadastros$ = this.carregarTabela();
+  }
+
+  alternarDetalhes(index: number): void {
+    this.detalhesVisiveis[index] = !this.detalhesVisiveis[index];
   }
 
   carregarTabela(): Observable<Cadastro[]> {
@@ -49,12 +53,14 @@ export class ListaComponent implements OnInit {
 
   editarItem(item: Cadastro) {
     const id = item._id;
+    console.log(id);
+
     const subscription = this.repository
       .findById(id)
       .subscribe((dados: Cadastro[]) => {
         const dialogRef = this.dialog.open(FormCadastroComponent, {
           width: '80%',
-          data: { modoEdicao: true, item: dados },
+          data: { modoEdicao: true, infoCadastro: dados },
         });
         dialogRef.afterClosed().subscribe((result) => {
           subscription.unsubscribe();

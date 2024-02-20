@@ -36,6 +36,7 @@
   padding: 0 5px;
   font-weight: bold;
   font-size: 1rem;
+  // background-color: #0000ff18;
 }
 
 .custom-id-cell .id-number::after {
@@ -56,16 +57,34 @@
 }
 .grid {
   display: grid;
+  margin: 0px !important;
 }
 .grid-template-columns {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
+}
+@media (max-width: 1080px) {
+  .grid-template-columns {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+@media (max-width: 870px) {
+  .grid-template-columns {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 .grid-1 {
   align-content: start;
+  margin: 0px;
+}
+.grid-2 p {
+  margin: 5px !important;
 }
 .grid-2 {
   text-align: right;
   justify-content: end;
+}
+.grid-2 span {
+  color: #0000ff;
 }
 .font-cell-edit h1 {
   font-size: medium;
@@ -79,12 +98,9 @@
 .font-cell-edit p {
   font-size: small;
   font-weight: bold;
-
   color: rgb(75, 75, 75);
 }
-.grid-2 span {
-  color: #0000ff;
-}
+
 .loading-spinner {
   display: flex;
   justify-content: center;

@@ -22,22 +22,24 @@
         <th mat-header-cell *matHeaderCellDef></th>
         <td style="width: 100%; " mat-cell *matCellDef="let element" class="linhas">
           <div class="grid grid-template-columns font-cell-edit">
+
             <div class="grid-1" (click)="alternarDetalhes(element._id)" style="cursor: pointer;">
               <h1 class="linhas">{{ element.name }}</h1>
               <h2 class="linhas ">{{ element.item }}</h2>
               <p class="linhas">{{ element.defeito }}</p>
             </div>
+
             <div class="grid-2">
               <p class="linhas ">Data de entrada: {{ element.dataEntrada | date: 'dd/MM/yyyy' }}</p>
 
               <p class="linhas"
                 [ngClass]="{'EM_TRIAGEM': element.status === 'EM_TRIAGEM', 'CANCELADO': element.status === 'CANCELADO', 'DISPONIVEL_TRIAGEM': element.status ==='DISPONIVEL_TRIAGEM', 'AGUARDANDO_CLIENTE': element.status === 'AGUARDANDO_CLIENTE', 'AGUARDANDO_MANUTENCAO' : element.status === 'AGUARDANDO_MANUTENCAO', 'EM_MANUTENCAO': element.status === 'EM_MANUTENCAO', 'MANUTENCAO_REALIZADA': element.status === 'MANUTENCAO_REALIZADA', 'CONCLUIDO_CONSERTADO' : element.status === 'CONCLUIDO_CONSERTADO', 'CONCLUIDO_N_CONSERTADO': element.status === 'CONCLUIDO_N_CONSERTADO'}">
               </p>
-
               <span style="cursor: pointer;" class="linhas" (click)="alternarDetalhes(element._id)">
                 {{ detalhesVisiveis[element._id] ? 'Menos detalhes' : 'Mais detalhes' }}
               </span>
             </div>
+
             <div class="descricao"
               [ngClass]="{'invisivel': !detalhesVisiveis[element._id], 'visivel': detalhesVisiveis[element._id]}">
               <p>{{element.desc}}</p>

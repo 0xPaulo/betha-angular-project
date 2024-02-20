@@ -25,7 +25,7 @@ import { MyRouteTesteRoutes } from './components-routing.module';
 import { DeleteComponent } from './delete/delete.component';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
-import { ListaComponent } from './lista/lista.component';
+import { ListaComponent } from './listas/lista-cadastro/lista.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({

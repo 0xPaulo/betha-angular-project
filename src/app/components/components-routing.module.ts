@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from '../screens/cadastro/cadastro.component';
 import { HomeComponent } from '../screens/home/home.component';
 import { LoginComponent } from '../screens/login/login.component';
-import { ListaComponent } from './lista/lista.component';
+import { ListaComponent } from './listas/lista-cadastro/lista.component';
 
 const routes: Routes = [
   { path: 'lista', component: ListaComponent },

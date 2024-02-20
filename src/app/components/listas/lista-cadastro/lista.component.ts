@@ -5,9 +5,9 @@ import { Cadastro } from 'src/app/interfaces/cadastro';
 import { RepositoryService } from 'src/app/services/repository.service';
 import { TabelaService } from 'src/app/services/tabela.service';
 
-import { DeleteComponent } from '../delete/delete.component';
-import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
-import { FormCadastroComponent } from '../form-cadastro/form-cadastro.component';
+import { DeleteComponent } from '../../delete/delete.component';
+import { ErrorDialogComponent } from '../../error-dialog/error-dialog.component';
+import { FormCadastroComponent } from '../../form-cadastro/form-cadastro.component';
 
 @Component({
   selector: 'lista-cadastro',

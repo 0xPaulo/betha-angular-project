@@ -24,7 +24,7 @@ export class RepositoryService {
     //nao todo o cadastro id nao vem
     return this.httpClient.post<Cadastro>(this.API, chamado).pipe(
       tap(() => {
-        console.log(`(save) url: ${this.API}`);
+        // console.log(`(save) url: ${this.API}`);
       })
     );
   }

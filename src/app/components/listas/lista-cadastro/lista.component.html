@@ -1,14 +1,35 @@
-<div class="card-container" (formSubmitted)="carregarNovaTabela()">
-  <mat-card-content *ngIf="cadastros$ | async as cadastros ; else loading">
+<div class="card-container">
+  <mat-card-content>
     <div class="table-toolbar pt-2">
       <h5 class="ms-3">Itens cadastrados</h5>
       <div class="demo-button-container">
         <button (click)="abrirDialogForm()" class="ms-3 demo-button personalizado-button">+ Cadastrar
         </button>
+        <div class="tabs twist">
+          <button class="tabs-button" (click)="carregarTabela()">
+            <p class="ico-tabs-1">1</p>
+            <p> Cadastros</p>
+          </button>
+          <button class="tabs-button"
+            (click)="filtroTriagem('EM_TRIAGEM','DISPONIVEL_TRIAGEM','AGUARDANDO_CLIENTE','CANCELADO')">
+            <p class="ico-tabs-2">2</p>
+            <p>Triagem</p>
+          </button>
+          <button class="tabs-button"
+            (click)="filtroManu('EM_MANUTENCAO','AGUARDANDO_MANUTENCAO','MANUTENCAO_REALIZADA')">
+            <p class="ico-tabs-3">3</p>
+            <p>Manutencao</p>
+          </button>
+          <button class="tabs-button" (click)="filtroConcluido('CONCLUIDO_CONSERTADO','CONCLUIDO_N_CONSERTADO')">
+            <p class="ico-tabs-4">4</p>
+            <p>Concluido</p>
+          </button>
+        </div>
       </div>
     </div>
 
-    <mat-table [dataSource]="cadastros">
+    <mat-table (formSubmitted)="carregarNovaTabela()" *ngIf="cadastros$ | async as cadastros ; else loading"
+      [dataSource]="cadastros">
       <!-- ID Column -->
       <ng-container matColumnDef="_id">
         <th mat-header-cell *matHeaderCellDef></th>
@@ -17,7 +38,7 @@
         </td>
       </ng-container>
 
-      <!-- Name Column -->
+      <!-- Info Column -->
       <ng-container matColumnDef="info">
         <th mat-header-cell *matHeaderCellDef></th>
         <td style="width: 100%; " mat-cell *matCellDef="let element" class="linhas">

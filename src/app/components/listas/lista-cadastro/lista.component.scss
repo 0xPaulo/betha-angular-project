@@ -1,5 +1,6 @@
 .table-toolbar {
-  background-color: rgba(0, 0, 0, 0.151);
+  background-color: #ebedf0;
+  border: 1px solid rgba(209, 209, 209, 0.397);
 }
 .table-toolbar h5 {
   font-size: 1.2rem;
@@ -21,6 +22,67 @@
   font-weight: bolder;
   cursor: pointer;
   border-radius: 4px;
+}
+.tabs {
+  padding: 12px 12px 0px 12px;
+  display: flex;
+}
+.tabs-button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  cursor: default;
+  text-align: left;
+  display: flex;
+  gap: 8px;
+}
+.twist {
+  transform: skewX(-30deg);
+}
+.tabs button {
+  cursor: pointer;
+  background-color: #b5c0cc;
+  flex-grow: 1;
+  margin: 0 5px;
+  padding: 5px;
+}
+.tabs p {
+  margin: 0px 0px 0px 10px;
+  transform: skewX(30deg);
+  color: black;
+  font-weight: bolder;
+}
+.ico-tabs-1 {
+  text-align: center;
+  width: 24px;
+  background-color: #4f5559;
+  border-radius: 100%;
+  color: white !important;
+}
+.ico-tabs-2 {
+  text-align: center;
+  width: 24px;
+  background-color: #0a6ab6;
+  color: white !important;
+  border-radius: 100%;
+}
+.ico-tabs-3 {
+  text-align: center;
+  width: 24px;
+  background-color: #4b2a8e;
+  color: white !important;
+  border-radius: 100%;
+}
+.ico-tabs-4 {
+  text-align: center;
+  width: 24px;
+  background-color: #78ca00;
+  color: white !important;
+  border-radius: 100%;
 }
 .linhas {
   // border: solid 1px red;
@@ -52,8 +114,8 @@
   background-color: #4c77af77;
   border-radius: 2rem;
   box-sizing: border-box; /* Inclui a largura da borda no cálculo do tamanho */
-  width: 2.625rem;
-  height: 1.25rem;
+  width: 48px;
+  height: 24px;
 }
 .grid {
   display: grid;

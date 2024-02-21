@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Cadastro } from 'src/app/interfaces/cadastro';
 import { RepositoryService } from 'src/app/services/repository.service';
 import { TabelaService } from 'src/app/services/tabela.service';
@@ -27,10 +27,6 @@ export class ListaComponent implements OnInit {
     this.cadastros$ = this.carregarTabela();
   }
 
-  alternarDetalhes(index: number): void {
-    this.detalhesVisiveis[index] = !this.detalhesVisiveis[index];
-  }
-
   carregarTabela(): Observable<Cadastro[]> {
     return (this.cadastros$ = this.tabelaService.carregarCadastros());
   }
@@ -39,6 +35,46 @@ export class ListaComponent implements OnInit {
     this.tabelaService.carregarCadastros();
   }
 
+  filtroTriagem(arg0: string, arg1: string, arg2: string, arg3: string) {
+    this.cadastros$ = this.tabelaService
+      .carregarCadastros()
+      .pipe(
+        map((cadastros) =>
+          cadastros.filter(
+            (cadastro) =>
+              cadastro.status === arg0 ||
+              cadastro.status === arg1 ||
+              cadastro.status === arg2 ||
+              cadastro.status === arg3
+          )
+        )
+      );
+  }
+  filtroManu(arg0: string, arg1: string, arg2: string) {
+    this.cadastros$ = this.tabelaService
+      .carregarCadastros()
+      .pipe(
+        map((cadastros) =>
+          cadastros.filter(
+            (cadastro) =>
+              cadastro.status === arg0 ||
+              cadastro.status === arg1 ||
+              cadastro.status === arg2
+          )
+        )
+      );
+  }
+  filtroConcluido(arg0: string, arg1: string) {
+    this.cadastros$ = this.tabelaService
+      .carregarCadastros()
+      .pipe(
+        map((cadastros) =>
+          cadastros.filter(
+            (cadastro) => cadastro.status === arg0 || cadastro.status === arg1
+          )
+        )
+      );
+  }
   abrirDialogForm() {
     const dialogRef = this.dialog.open(FormCadastroComponent, {
       // height: '40%',
@@ -49,6 +85,9 @@ export class ListaComponent implements OnInit {
 
   openDialogError() {
     this.dialog.open(ErrorDialogComponent);
+  }
+  alternarDetalhes(index: number): void {
+    this.detalhesVisiveis[index] = !this.detalhesVisiveis[index];
   }
 
   editarItem(item: Cadastro) {

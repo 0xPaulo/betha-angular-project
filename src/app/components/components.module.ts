@@ -28,7 +28,6 @@ import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
 import { ListaComponent } from './listas/lista-cadastro/lista.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { FiltrosComponent } from './filtros/filtros.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +38,6 @@ import { FiltrosComponent } from './filtros/filtros.component';
     HomeComponent,
     DeleteComponent,
     CadastroComponent,
-    FiltrosComponent,
   ],
   imports: [
     MatTabsModule,

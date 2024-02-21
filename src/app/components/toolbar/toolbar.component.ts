@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./toolbar.component.scss'],
 })
 export class ToolbarComponent {
+  onCadastro() {
+    this.router.navigate(['cadastrar']);
+  }
   onHome() {
     this.router.navigate(['home']);
   }

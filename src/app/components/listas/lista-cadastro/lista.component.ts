@@ -34,6 +34,15 @@ export class ListaComponent implements OnInit {
   carregarNovaTabela() {
     this.tabelaService.carregarCadastros();
   }
+  filterStatus(arg0: string) {
+    this.cadastros$ = this.tabelaService
+      .carregarCadastros()
+      .pipe(
+        map((cadastros) =>
+          cadastros.filter((cadastro) => cadastro.status === arg0)
+        )
+      );
+  }
 
   filtroTriagem(arg0: string, arg1: string, arg2: string, arg3: string) {
     this.cadastros$ = this.tabelaService

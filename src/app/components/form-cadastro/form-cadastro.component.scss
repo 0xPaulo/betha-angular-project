@@ -2,3 +2,26 @@
   display: flex;
   flex-direction: column;
 }
+div {
+  display: flex;
+}
+.info-cliente mat-form-field {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.info-item mat-form-field {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+.info-data-status mat-form-field {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+.info-footer mat-form-field {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+.ico-none mat-datepicker-toggle {
+  visibility: hidden;
+}

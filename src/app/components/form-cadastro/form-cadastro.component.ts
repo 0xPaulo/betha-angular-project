@@ -27,13 +27,21 @@ export class FormCadastroComponent implements OnInit {
       this.form = formBuilder.group({
         name: [data.infoCadastro.name],
         defeito: [data.infoCadastro.defeito],
+        email: [data.infoCadastro.email],
         item: [data.infoCadastro.item],
+        data_entrada: [data.infoCadastro.dataEntrada],
+        desc: [data.infoCadastro.desc],
+        status: [data.infoCadastro.status],
       });
     } else {
       this.form = formBuilder.group({
         name: [null],
         defeito: [null],
+        email: [null],
         item: [null],
+        data_entrada: [null],
+        desc: [null],
+        status: [null],
       });
     }
   }

@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -19,9 +20,9 @@ export class FormCadastroComponent implements OnInit {
     private service: RepositoryService,
     private formBuilder: FormBuilder,
     private tabelaService: TabelaService,
+    private datePipe: DatePipe,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    console.log(data);
     if (data) {
       this.isEditMode = true;
       this.form = formBuilder.group({
@@ -48,12 +49,19 @@ export class FormCadastroComponent implements OnInit {
 
   onSubmit() {
     if (this.isEditMode) {
-      const id_item: string = this.data.infoCadastro._id;
-      console.log(id_item);
+      const dataInicial = this.form.value.data_entrada;
+      const dataFormatada = this.datePipe.transform(
+        dataInicial,
+        'yyyy-MM-ddTHH:mm:ss'
+      );
+      const dadosParaSalvar = {
+        ...this.form.value,
+        dataEntrada: dataFormatada,
+      };
 
-      this.service.update(id_item, this.form.value).subscribe(
+      const id_item: string = this.data.infoCadastro._id;
+      this.service.update(id_item, dadosParaSalvar).subscribe(
         (result) => {
-          console.log(result);
           this.tabelaService.emitListaAtualizada.emit();
           this.onSucess();
         },
